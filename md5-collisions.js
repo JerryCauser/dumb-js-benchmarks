@@ -1,5 +1,4 @@
-const crypto = require('crypto')
-const { v4: uuidv4 } = require('uuid');
+import crypto from 'node:crypto'
 
 const superIterations = 10
 const superHashes = {}
@@ -15,7 +14,6 @@ const logStep = Math.ceil(maxIterationsWHOLE / 100)
 
 console.time('hashing')
 for (let i = 0; i < maxIterationsWHOLE; i++) {
-  // const payload = uuidv4()
   const payload = i.toString()
   const h = crypto.createHash('md5').update(payload).digest('hex').slice(0, 14)
 
